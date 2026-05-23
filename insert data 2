@@ -1,0 +1,36 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "student";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully <br>";
+echo "thanks sir <br>";
+
+
+$sql = "INSERT INTO students_India (firstname, lastname, email)
+VALUES 
+('John', 'Doe', 'john@example.com'),
+('Harry', 'Doe', 'harry@example.com'),
+('Jane', 'Doe', 'jane@example.com'),
+('Bob', 'Doe', 'bob@example.com'),
+('Alice', 'Doe', 'alice@example.com'),
+('Charlie', 'Doe', 'charlie@example.com')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+echo "<br>hello";
+
+$conn->close();
+?>
