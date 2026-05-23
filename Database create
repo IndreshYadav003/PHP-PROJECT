@@ -1,0 +1,38 @@
+<?php
+# WAys to connect aMySql Database using PDO in PHP
+#1MySQLi Extension
+#2PDO (PHP Data Objects)
+// connecting to the Databse
+$serverrname = "localhost";
+$username="root";
+$password= "";
+
+// Create connection
+$conn = mysqli_connect($serverrname, $username, $password);
+
+// create a db
+$sql = "CREATE DATABASE best_world";
+if (!$result=mysqli_query($conn, $sql)) {
+    die("Error creating database: " . mysqli_error($conn));
+}
+echo "Database created successfully";
+
+
+echo "<br>";
+if($result){
+  echo "The db was created successfully";
+}
+else {
+
+echo"the data base was not created successfully because of this error --->". mysqli_error($conn);
+}
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}else{
+echo "Connection was successful";
+}
+
+
+?>
