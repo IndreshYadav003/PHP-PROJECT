@@ -1,0 +1,67 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+//$database = "studentdb"; used when data base is created
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+
+
+echo "<br>";
+echo "thanks sir <br>";
+
+/* step 1
+// create a db
+$sql = "CREATE DATABASE studentdb";
+if (!$result=mysqli_query($conn, $sql)) {
+    die("Error creating database: " . mysqli_error($conn));
+}
+echo "Database created successfully";
+*/
+
+echo "<br>";
+/* step 2
+// SQL to create table
+$sql = "CREATE TABLE studentsinforation (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50)
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Table created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+echo "<br>hello";
+*/
+$sql = "INSERT INTO studentsinforation (firstname, lastname, email)
+VALUES 
+('John', 'Doe', 'john@example.com'),
+('Harry', 'Doe', 'harry@example.com'),
+('Jane', 'Doe', 'jane@example.com'),
+('Bob', 'Doe', 'bob@example.com'),
+('Alice', 'Doe', 'alice@example.com'),
+('Charlie', 'Doe', 'charlie@example.com')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+echo "<br>hello";
+
+$conn->close();
+
+
+
+?>
