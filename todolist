@@ -12,7 +12,31 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+/*
+/* // create a db $sql = "CREATE DATABASE notesdb";
+if (!$result=mysqli_query($conn, $sql))
+{
+die("Error creating database: " . mysqli_error($conn));
+} 
+echo "Database created successfully"; 
+echo "<br>"; */ /* 
+// SQL to create table
+$sql = "CREATE TABLE notes
+( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+title VARCHAR(100) NOT NULL, content TEXT )"; 
+if ($conn->query($sql) === TRUE)
+{ echo "Table created successfully";
+} else 
+{
+echo "Error creating table: " . $conn->error; }
+*/ 
+$sql = "INSERT INTO notes
+(title, content) VALUES
+('Note 1', 'This is the content of note 1'),
+('Note 2', 'This is the content of note 2'),
+('Note 3', 'This is the content of note 3'), 
+('Note 4', 'This is the content of note 4'),
+*/
 // INSERT OPERATION
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
